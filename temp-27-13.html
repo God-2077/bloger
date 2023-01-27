@@ -1,0 +1,279 @@
+<!-- wp:heading -->
+<h2>一、字体</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>在额外CSS添加</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+[collapse title="折叠的代码" showleftborder="true"]
+<pre class="wp-block-code"><code>/* 设置网站字体 */
+@font-face{
+font-family:btfFont;
+src: url(https:// 资源链接地址) format('woff2')
+}
+body{font-family:"btfFont" !important}</code></pre>
+[/collapse]
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p>字体你可以在<a rel="noreferrer noopener" href="https://www.fonts.net.cn/" target="_blank">字体天下</a>、<a rel="noreferrer noopener" href="https://www.100font.com/" target="_blank">100font</a>等网站里免费下载。通过<a rel="noreferrer noopener" href="https://cloudconvert.com/" target="_blank">cloudconvert</a>转换获得woff2格式文件。原则上你可以设置多个字体，然后在不同的部位使用不同的字体</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>二、网站底部信息</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3>样式一：</h3>
+<!-- /wp:heading -->
+
+<!-- wp:image {"width":345,"height":45,"sizeSlug":"large"} -->
+<figure class="wp-block-image size-large is-resized"><img src="http://space520.42web.io/webfile/img/IMG_20230126_143400.jpg" alt="" width="345" height="45"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>在<code>主题文件编辑器</code>里编辑<code>footer.php</code>文件</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>在<code>&lt;/footer&gt;</code>之前插入以下代码。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+[collapse title="折叠的代码" showleftborder="true"]
+<pre class="wp-block-code"><code>&lt;!--耗时及占用内存开始--&gt;
+&lt;span id="momk"&gt;&lt;/span&gt;&lt;span id="momk" style="color: #ff0000;"&gt;&lt;/span&gt;
+&lt;script type="text/javascript"&gt;
+function NewDate(str) {
+str = str.split('-');
+var date = new Date();
+date.setUTCFullYear(str[0], str[1] - 1, str[2]);
+date.setUTCHours(0, 0, 0, 0);
+return date;
+}
+function momxc() {
+&lt;!--这里要改成自己博客的诞生时间--&gt;
+var birthDay =NewDate("2022-04-28");
+var today=new Date();
+var timeold=today.getTime()-birthDay.getTime();
+var sectimeold=timeold/1000
+var secondsold=Math.floor(sectimeold);
+var msPerDay=24*60*60*1000; var e_daysold=timeold/msPerDay;
+var daysold=Math.floor(e_daysold);
+var e_hrsold=(daysold-e_daysold)*-24;
+var hrsold=Math.floor(e_hrsold);
+var e_minsold=(hrsold-e_hrsold)*-60;
+var minsold=Math.floor((hrsold-e_hrsold)*-60); var seconds=Math.floor((minsold-e_minsold)*-60).toString();
+document.getElementById("momk").innerHTML = "本站已安全运行："+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒&lt;br&gt;";
+setTimeout(momxc, 1000);
+}momxc();
+&lt;/script&gt;
+&lt;style&gt;
+#momk{animation:change 10s infinite;font-weight:800; }
+@keyframes change{0%{color:#5cb85c;}25%{color:#556bd8;}50%{color:#e40707;}75%{color:#66e616;}100% {color:#67bd31;}}
+&lt;/style&gt;
+&lt;?php printf(' | 耗时 %.3f 秒 | 查询 %d 次 | 内存 %.2f MB |',timer_stop( 0, 3 ),get_num_queries(),memory_get_peak_usage() / 1024 / 1024);?&gt;&lt;br&gt;
+&lt;!--耗时及占用内存结束--&gt;</code></pre>
+[/collapse]
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3>样式二、</h3>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":4} -->
+<h4>CSS (样式表)</h4>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+[collapse title="折叠的代码" showleftborder="true"]
+<pre class="wp-block-code"><code>&lt;style&gt;
+/* 核心样式 */
+.github-badge {
+display: inline-block;
+border-radius: 4px;
+text-shadow: none;
+font-size: 13.1px;
+color: #fff;
+line-height: 15px;
+margin-bottom: 5px;
+font-family: "Open Sans", sans-serif;
+}
+.github-badge .badge-subject {
+display: inline-block;
+background-color: #4d4d4d;
+padding: 4px 4px 4px 6px;
+border-top-left-radius: 4px;
+border-bottom-left-radius: 4px;
+font-family: "Open Sans", sans-serif;
+}
+.github-badge .badge-value {
+display: inline-block;
+padding: 4px 6px 4px 4px;
+border-top-right-radius: 4px;
+border-bottom-right-radius: 4px;
+font-family: "Open Sans", sans-serif;
+}
+.github-badge-big {
+display: inline-block;
+border-radius: 6px;
+text-shadow: none;
+font-size: 14.1px;
+color: #fff;
+line-height: 18px;
+margin-bottom: 7px;
+}
+.github-badge-big .badge-subject {
+display: inline-block;
+background-color: #4d4d4d;
+padding: 4px 4px 4px 6px;
+border-top-left-radius: 4px;
+border-bottom-left-radius: 4px;
+}
+.github-badge-big .badge-value {
+display: inline-block;
+padding: 4px 6px 4px 4px;
+border-top-right-radius: 4px;
+border-bottom-right-radius: 4px;
+}
+.bg-orange {
+background-color: #ec8a64 !important;
+}
+.bg-red {
+background-color: #cb7574 !important;
+}
+.bg-apricots {
+background-color: #f7c280 !important;
+}
+.bg-casein {
+background-color: #dfe291 !important;
+}
+.bg-shallots {
+background-color: #97c3c6 !important;
+}
+.bg-ogling {
+background-color: #95c7e0 !important;
+}
+.bg-haze {
+background-color: #9aaec7 !important;
+}
+.bg-mountain-terrier {
+background-color: #99a5cd !important;
+}
+&lt;/style&gt;</code></pre>
+[/collapse]
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p>若要改变颜色的可以在上面代码中改</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":4} -->
+<h4>HTML (底部信息)</h4>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+[collapse title="折叠的代码" showleftborder="true"]
+<pre class="wp-block-code"><code>&lt;div class="github-badge-big"&gt;
+&lt;span class="badge-subject"&gt;&lt;i class="fa fa-id-card"&gt;&lt;/i&gt; 备案号 &lt;/span
+&gt;&lt;span class="badge-value bg-orange"&gt;
+&lt;a href="https://beian.miit.gov.cn/" target="_blank" one-link-mark="yes"
+&gt;苏ICP备2022020194号&lt;/a
+&gt;
+|
+&lt;a
+href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode= 32072202010255"
+target="_blank"
+one-link-mark="yes"
+&gt;苏公网安备 32072202010255号&lt;/a
+&gt;&lt;/span
+&gt;
+&lt;/div&gt;
+&lt;div class="github-badge-big"&gt;
+&lt;span class="badge-subject"&gt;Copyright &lt;/span
+&gt;&lt;span class="badge-value bg-red"&gt;
+2022-2022
+&lt;i class="fa fa-copyright"&gt;&lt;/i&gt; Echo&lt;/span
+&gt;
+&lt;/script&gt;
+&lt;/div&gt;
+ 
+&lt;div class="github-badge"&gt;
+&lt;span class="badge-subject"&gt;&lt;i class="fa fa-wordpress"&gt;&lt;/i&gt; Powered&lt;/span
+&gt;&lt;span class="badge-value bg-green"
+&gt;&lt;a href="https://cn.wordpress.org/" target="_blank" one-link-mark="yes"
+&gt;WordPress&lt;/a
+&gt;&lt;/span
+&gt;
+&lt;/div&gt;
+&lt;div class="github-badge-big"&gt;
+&lt;span class="badge-subject"&gt;&lt;i class="fa fa-clock-o"&gt;&lt;/i&gt; Running Time&lt;/span
+&gt;&lt;span class="badge-value bg-apricots"
+&gt;&lt;span id="blog_running_days" class="odometer odometer-auto-theme"&gt;&lt;/span&gt;
+days
+&lt;span id="blog_running_hours" class="odometer odometer-auto-theme"&gt;&lt;/span&gt; H
+&lt;span id="blog_running_mins" class="odometer odometer-auto-theme"&gt;&lt;/span&gt; M
+&lt;span id="blog_running_secs" class="odometer odometer-auto-theme"&gt;&lt;/span&gt;
+S&lt;/span
+&gt;</code></pre>
+[/collapse]
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p>如果不需要什么可上在上面那把那部分删了</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":4} -->
+<h4>JavaScript（网站运行时间脚本）</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong><code><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-red-color">注意</mark></code>：new Date (year, month, date, hrs, min, sec) 按给定的参数创建 日期对象</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>其中 month 的值域为 0～11，0 代表 1 月，11 表代表 12 月；所以你输入的月份需要为自己真正月份的前一个月</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+[collapse title="折叠的代码" showleftborder="true"]
+<pre class="wp-block-code"><code>&lt;script no-pjax=""&gt;
+var blog_running_days = document.getElementById("blog_running_days");
+var blog_running_hours = document.getElementById("blog_running_hours");
+var blog_running_mins = document.getElementById("blog_running_mins");
+var blog_running_secs = document.getElementById("blog_running_secs");
+function refresh_blog_running_time() {
+var time = new Date() - new Date(2022, 5, 31, 0, 0, 0); /*此处日期的月份改为自己真正月份的前一个月*/
+var d = parseInt(time / 24 / 60 / 60 / 1000);
+var h = parseInt((time % (24 * 60 * 60 * 1000)) / 60 / 60 / 1000);
+var m = parseInt((time % (60 * 60 * 1000)) / 60 / 1000);
+var s = parseInt((time % (60 * 1000)) / 1000);
+blog_running_days.innerHTML = d;
+blog_running_hours.innerHTML = h;
+blog_running_mins.innerHTML = m;
+blog_running_secs.innerHTML = s;
+}
+refresh_blog_running_time();
+if (typeof bottomTimeIntervalHasSet == "undefined") {
+var bottomTimeIntervalHasSet = true;
+setInterval(function () {
+refresh_blog_running_time();
+}, 500);
+}
+&lt;/script&gt;</code></pre>
+[/collapse]
+<!-- /wp:html -->
+
+<!-- wp:heading -->
+<h2>三、Agron 短代码</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-red-color">注意</mark>：此小节中的内容只适用于使用了 Agron 主题的网站</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Argon 主题提供了多种短代码的支持，这些短代码可以给文章中增加特殊的内容，让文章的表达形式更加丰富。</p>
+<!-- /wp:paragraph -->
