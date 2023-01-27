@@ -277,3 +277,58 @@ refresh_blog_running_time();
 <!-- wp:paragraph -->
 <p>Argon 主题提供了多种短代码的支持，这些短代码可以给文章中增加特殊的内容，让文章的表达形式更加丰富。</p>
 <!-- /wp:paragraph -->
+
+[collapse title="<h4>TODO 复选框</h4>" collapsed="ture"]
+<!-- wp:heading -->
+<h5 id="jie-shao">介绍<a href="#jie-shao"></a></h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>该短代码可以插入一个复选框（不可互动）。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h5 id="yong-fa">用法<a href="#yong-fa"></a></h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>[noshortcode][checkbox] 参数名="参数值"]内容[/checkbox][/noshortcode]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h5 id="can-shu">参数<a href="#can-shu"></a></h5>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table><tbody><tr><td>参数名</td><td>可选值</td><td>默认值</td><td>解释</td><td>是否必须</td></tr><tr><td>checked</td><td>true/false</td><td>false</td><td>是否勾选复选框</td><td>否</td></tr><tr><td>inline</td><td>true/false</td><td>false</td><td>是否行内显示</td><td>否</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>有些参数不是必需的，如果不写某个参数则会使用默认值</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h5 id="li-zi">例子<a href="#li-zi"></a></h5>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h6 id="dai-ma">代码<a href="#dai-ma"></a></h6>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>[noshortcode][checkbox]]默认复选框[/checkbox][/noshortcode]</p>
+<!-- /wp:paragraph -->
+<br>
+<!-- wp:paragraph -->
+<p>[noshortcode][checkbox] checked="true"]已经完成的项目[/checkbox][/noshortcode]</p>
+<!-- /wp:paragraph -->
+<br>
+<!-- wp:paragraph -->
+<p>[noshortcode][checkbox] checked="false"]还未完成的项目[/checkbox][/noshortcode]</p>
+<!-- /wp:paragraph -->
+<br>
+<!-- wp:heading {"level":3} -->
+<h6 id="xiao-guo">效果</h6>
+<!-- /wp:heading -->
+
+[/collapse]
